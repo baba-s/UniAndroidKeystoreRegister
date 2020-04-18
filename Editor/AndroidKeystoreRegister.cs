@@ -2,9 +2,9 @@
 using System.IO;
 using UnityEditor;
 using UnityEngine;
-using UnityEngine.Experimental.UIElements;
+using UnityEngine.UIElements;
 
-namespace KoganeUnityLib
+namespace UniAndroidKeystoreRegister
 {
 	internal static class AndroidKeystoreRegister
 	{
@@ -33,16 +33,16 @@ namespace KoganeUnityLib
 		[SettingsProvider]
 		public static SettingsProvider CreateSettingsProvider()
 		{
-			var path = "Project/Android Keystore Register";
-			var provider = new SettingsProvider( path )
+			var path = "Project/UniAndroidKeystoreRegister";
+			var provider = new SettingsProvider( path, SettingsScope.Project )
 			{
-				label               = "Android Keystore Register",
+				label               = "UniAndroidKeystoreRegister",
 				activateHandler     = OnActive,
 				deactivateHandler   = OnDeactive,
 				titleBarGuiHandler  = null,
 				guiHandler          = OnGUI,
 				footerBarGuiHandler = null,
-				keywords            = new[] { "Android", "keyaliasPass", "keystorePass" },
+				keywords            = new[] { "keyaliasPass", "keystorePass" },
 			};
 
 			return provider;
@@ -73,7 +73,7 @@ namespace KoganeUnityLib
 				{
 					Process.Start( Directory );
 				}
-				
+
 				if ( GUILayout.Button( "Open Settings File" ) )
 				{
 					Process.Start( Path );

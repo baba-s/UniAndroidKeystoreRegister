@@ -25,7 +25,11 @@ namespace UniAndroidKeystoreRegister
 		private static void Run()
 		{
 			Load();
+			Apply();
+		}
 
+		private static void Apply()
+		{
 			PlayerSettings.Android.keyaliasPass = m_data.KeyaliasPass;
 			PlayerSettings.Android.keystorePass = m_data.KeystorePass;
 		}
@@ -115,6 +119,8 @@ namespace UniAndroidKeystoreRegister
 			writer.Write( json );
 
 			writer.Close();
+
+			Apply();
 		}
 	}
 }
